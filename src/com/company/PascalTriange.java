@@ -34,5 +34,25 @@ final class PascalTriangle {
             }
         }
     }
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PascalTriangle that = (PascalTriangle) o;
+        return Arrays.deepEquals(that.matrix, this.matrix) && that.n == n;
+    }
+
+    @Override
+    public int hashCode(){
+        return (Integer.MAX_VALUE / 16) % n;
+    }
+
+    @Override
+    public String toString(){
+        return String.format(Arrays.deepToString(this.getPascalsMatrix()).
+                replace(", [", ",%n[")). replace(" 0,", "");
+    }
+
+
 }
 
